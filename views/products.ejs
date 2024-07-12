@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Products</title>
+    <title>Tus Productos</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
     />
   </head>
+
   <body>
-    <h1>Products</h1>
+    <h1>Tus Productos</h1>
+
     <a href="/products/add">Add New Product</a>
     <ul>
       <% products.forEach(function(product) { %>
       <li>
-        <a href="/products/<%= product.id %>"><%= product.name %></a>
+        ID:
+        <a href="/products/<%= product.id %>"> <%=product.id%> </a>
+        Nombre:
+        <a href="/products/<%= product.id %>"> <%=product.nombre%> </a>
+
         <form
           action="/products/<%= product.id %>?_method=DELETE"
           method="post"
           style="display: inline"
         >
           <input type="hidden" name="_method" value="delete" />
-          <button type="submit">Delete</button>
+
+          <button type="submit">Borrar</button>
         </form>
-        <a href="/products/edit/<%= product.id %>">Edit</a>
+        <a href="/products/edit/<%= product.id %>">
+          <button type="submit">Editar</button>
+        </a>
       </li>
       <% }); %>
     </ul>

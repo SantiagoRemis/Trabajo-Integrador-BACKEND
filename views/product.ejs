@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= product.name %></title>
+    <title><%= product.nombre %></title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
     />
   </head>
+
   <body>
     <h1>Product Details</h1>
-    <p><strong>Name:</strong> <%= product.name %></p>
-    <p><strong>Price:</strong> <%= product.price %></p>
-    <p><strong>Description:</strong> <%= product.description %></p>
-    <p><strong>Stock:</strong> <%= product.stock %></p>
+    <p>
+      <strong>ID:</strong>
+      <%= product.id %>
+    </p>
+    <p>
+      <strong>Codigo:</strong>
+      <%= product.codigo %>
+    </p>
+    <p>
+      <strong>nombre:</strong>
+      <%= product.nombre %>
+    </p>
+    <p>
+      <strong>Precio:</strong>
+      <%= product.precio %>
+    </p>
+    <p>
+      <strong>categoria:</strong>
+      <%= product.categoria %>
+    </p>
     <a href="/products/edit/<%= product.id %>">Edit</a>
     <form
       action="/products/<%= product.id %>?_method=DELETE"
@@ -22,6 +39,6 @@
       <input type="hidden" name="_method" value="delete" />
       <button type="submit">Delete</button>
     </form>
-    <a href="/products">Back to Products</a>
+    <a href="/products">Volver a los Productos</a>
   </body>
 </html>

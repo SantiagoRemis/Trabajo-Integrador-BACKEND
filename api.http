@@ -30,10 +30,11 @@ POST http://localhost:3000/products/
 Content-Type: application/json
 
 {
-  "name": "NewProduct",
-  "price": 100,
-  "description": "NewProductDescription",
-  "stock": 10
+      "id": 10,
+      "codigo": 83635,
+      "nombre": "Cepillo de dientes",
+      "precio": 4.99,
+      "categoria": "Higiene personal"
 }
 
 ### Editar un producto por ID (protegido)
@@ -41,11 +42,12 @@ PATCH http://localhost:3000/products/3
 Content-Type: application/json
 
 {
-  "name": "UpdatedProduct",
-  "price": 150,
-  "description": "UpdatedDescription",
-  "stock": 20
+      "id": 10,
+      "codigo": 8335,
+      "nombre": "Cepillo de dientes",
+      "precio": 5.99,
+      "categoria": "Higiene personal"
 }
 
 ### Eliminar un producto por ID (protegido)
-DELETE http://localhost:3000/products/11
+DELETE http://localhost:3000/products/10

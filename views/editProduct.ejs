@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Edit Product</title>
+    <title>Editar Producto</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
     />
   </head>
   <body>
-    <h1>Edit Product</h1>
+    <h1>Editar Producto</h1>
     <form action="/products/<%= product.id %>?_method=PATCH" method="post">
       <input type="hidden" name="_method" value="patch" />
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        value="<%= product.name %>"
-        required
-      />
-      <label for="price">Price:</label>
+      <label for="id">ID:</label>
       <input
         type="number"
-        id="price"
-        name="price"
-        value="<%= product.price %>"
+        id="id"
+        name="id"
+        value="<%= product.id %>"
         required
+        readonly
       />
-      <label for="description">Description:</label>
-      <input
-        type="text"
-        id="description"
-        name="description"
-        value="<%= product.description %>"
-        required
-      />
-      <label for="stock">Stock:</label>
+      <label for="codigo">Código:</label>
       <input
         type="number"
-        id="stock"
-        name="stock"
-        value="<%= product.stock %>"
+        id="codigo"
+        name="codigo"
+        value="<%= product.codigo %>"
         required
       />
-      <button type="submit">Update Product</button>
+      <label for="nombre">Nombre:</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        value="<%= product.nombre %>"
+        required
+      />
+      <label for="precio">Precio:</label>
+      <input
+        type="number"
+        step="0.01"
+        id="precio"
+        name="precio"
+        value="<%= product.precio %>"
+        required
+      />
+      <label for="categoria">Categoría:</label>
+      <input
+        type="text"
+        id="categoria"
+        name="categoria"
+        value="<%= product.categoria %>"
+        required
+      />
+      <button type="submit">Actualizar producto</button>
     </form>
+    <a href="/products">Regresar a Productos</a>
   </body>
 </html>
