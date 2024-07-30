@@ -2,59 +2,133 @@
 <html>
   <head>
     <title>Editar Producto</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+      }
+
+      h1 {
+        color: #ff5722;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: left;
+      }
+
+      form input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+
+      form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      form button:hover {
+        background-color: #0056b3;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+        font-size: 16px;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #0056b3;
+      }
+    </style>
   </head>
+
   <body>
-    <h1>Editar Producto</h1>
-    <form action="/products/<%= product.id %>?_method=PATCH" method="post">
-      <input type="hidden" name="_method" value="patch" />
-      <label for="id">ID:</label>
-      <input
-        type="number"
-        id="id"
-        name="id"
-        value="<%= product.id %>"
-        required
-        readonly
-      />
-      <label for="codigo">Código:</label>
-      <input
-        type="number"
-        id="codigo"
-        name="codigo"
-        value="<%= product.codigo %>"
-        required
-      />
-      <label for="nombre">Nombre:</label>
-      <input
-        type="text"
-        id="nombre"
-        name="nombre"
-        value="<%= product.nombre %>"
-        required
-      />
-      <label for="precio">Precio:</label>
-      <input
-        type="number"
-        step="0.01"
-        id="precio"
-        name="precio"
-        value="<%= product.precio %>"
-        required
-      />
-      <label for="categoria">Categoría:</label>
-      <input
-        type="text"
-        id="categoria"
-        name="categoria"
-        value="<%= product.categoria %>"
-        required
-      />
-      <button type="submit">Actualizar producto</button>
-    </form>
-    <a href="/products">Regresar a Productos</a>
+    <div class="container">
+      <h1>Editar Producto</h1>
+      <form action="/products/<%= product.id %>?_method=PATCH" method="post">
+        <input type="hidden" name="_method" value="patch" />
+        <label for="id">ID:</label>
+        <input
+          type="number"
+          id="id"
+          name="id"
+          value="<%= product.id %>"
+          required
+          readonly
+        />
+        <label for="codigo">Código:</label>
+        <input
+          type="number"
+          id="codigo"
+          name="codigo"
+          value="<%= product.codigo %>"
+          required
+        />
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          value="<%= product.nombre %>"
+          required
+        />
+        <label for="precio">Precio:</label>
+        <input
+          type="number"
+          step="0.01"
+          id="precio"
+          name="precio"
+          value="<%= product.precio %>"
+          required
+        />
+        <label for="categoria">Categoría:</label>
+        <input
+          type="text"
+          id="categoria"
+          name="categoria"
+          value="<%= product.categoria %>"
+          required
+        />
+        <button type="submit">Actualizar producto</button>
+      </form>
+      <a href="/products">Regresar a Productos</a>
+    </div>
   </body>
 </html>

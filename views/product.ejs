@@ -2,43 +2,107 @@
 <html>
   <head>
     <title><%= product.nombre %></title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #ff5722;
+      }
+
+      p {
+        text-align: left;
+        margin: 10px 0;
+      }
+
+      strong {
+        color: #333;
+      }
+
+      a,
+      button {
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      a:hover,
+      button:hover {
+        background-color: #e64a19;
+      }
+
+      form {
+        display: inline;
+      }
+
+      form button {
+        background-color: #d32f2f;
+      }
+
+      form button:hover {
+        background-color: #c62828;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Product Details</h1>
-    <p>
-      <strong>ID:</strong>
-      <%= product.id %>
-    </p>
-    <p>
-      <strong>Codigo:</strong>
-      <%= product.codigo %>
-    </p>
-    <p>
-      <strong>nombre:</strong>
-      <%= product.nombre %>
-    </p>
-    <p>
-      <strong>Precio:</strong>
-      <%= product.precio %>
-    </p>
-    <p>
-      <strong>categoria:</strong>
-      <%= product.categoria %>
-    </p>
-    <a href="/products/edit/<%= product.id %>">Edit</a>
-    <form
-      action="/products/<%= product.id %>?_method=DELETE"
-      method="post"
-      style="display: inline"
-    >
-      <input type="hidden" name="_method" value="delete" />
-      <button type="submit">Delete</button>
-    </form>
-    <a href="/products">Volver a los Productos</a>
+    <div class="container">
+      <h1>Detalles del Producto</h1>
+      <p>
+        <strong>ID:</strong>
+        <%= product.id %>
+      </p>
+      <p>
+        <strong>Código:</strong>
+        <%= product.codigo %>
+      </p>
+      <p>
+        <strong>Nombre:</strong>
+        <%= product.nombre %>
+      </p>
+      <p>
+        <strong>Precio:</strong>
+        <%= product.precio %>
+      </p>
+      <p>
+        <strong>Categoría:</strong>
+        <%= product.categoria %>
+      </p>
+      <a href="/products/edit/<%= product.id %>">Editar</a>
+      <form
+        action="/products/<%= product.id %>?_method=DELETE"
+        method="post"
+        style="display: inline"
+      >
+        <input type="hidden" name="_method" value="delete" />
+        <button type="submit">Borrar</button>
+      </form>
+      <a href="/products">Volver a la Mercadería</a>
+    </div>
   </body>
 </html>

@@ -2,48 +2,106 @@
 <html>
   <head>
     <title>Añadir Nuevo Producto</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+      }
+      h1 {
+        color: #4caf50;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      a {
+        display: block;
+        margin-top: 15px;
+        color: #4caf50;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <h1>Añadir Nuevo Producto</h1>
+    <div class="container">
+      <h1>Añadir Nuevo Producto</h1>
+      <form action="/products/add" method="post">
+        <label for="codigo">Código:</label>
+        <input type="number" id="codigo" name="codigo" required />
 
-    <form action="/products/" method="post">
-      <label for="id">ID:</label>
-      <input type="number" id="id" name="id" value="10" required readonly />
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Nombre del producto"
+          required
+        />
 
-      <label for="codigo">Código:</label>
-      <input type="number" id="codigo" name="codigo" value="83635" required />
+        <label for="precio">Precio:</label>
+        <input
+          type="number"
+          step="0.01"
+          id="precio"
+          name="precio"
+          placeholder="0.00"
+          required
+        />
 
-      <label for="nombre">Nombre:</label>
-      <input
-        type="text"
-        id="nombre"
-        name="nombre"
-        placeholder="Nombre del producto"
-        required
-      />
-      <label for="precio">Precio:</label>
-      <input
-        type="number"
-        step="0.01"
-        id="precio"
-        name="precio"
-        placeholder="0,00"
-        required
-      />
-      <label for="categoria">Categoría:</label>
-      <input
-        type="text"
-        id="categoria"
-        name="categoria"
-        placeholder="Categoria del producto"
-        required
-      />
-      <button type="submit">Añadir Nuevo Producto</button>
-    </form>
-    <a href="/products">Regresar a Productos</a>
+        <label for="categoria">Categoría:</label>
+        <input
+          type="text"
+          id="categoria"
+          name="categoria"
+          placeholder="Categoría del producto"
+          required
+        />
+
+        <button type="submit">Añadir Nuevo Producto</button>
+      </form>
+      <a href="/products">Regresar a la Mercadería</a>
+    </div>
   </body>
 </html>

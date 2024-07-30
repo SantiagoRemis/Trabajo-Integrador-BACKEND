@@ -1,39 +1,169 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tus Productos</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
+    <title>Productos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 800px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      form input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+
+      form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      form button:hover {
+        background-color: #0056b3;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        background-color: #f9f9f9;
+        margin: 10px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      li a {
+        color: #007bff;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+
+      li a:hover {
+        text-decoration: underline;
+      }
+
+      li form {
+        display: inline;
+      }
+
+      li button {
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+
+      li button:hover {
+        background-color: #e64a19;
+      }
+
+      li button.delete {
+        background-color: #d32f2f;
+      }
+
+      li button.delete:hover {
+        background-color: #c62828;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+      }
+    </style>
   </head>
-
   <body>
-    <h1>Tus Productos</h1>
+    <div class="container">
+      <h1>Mercadería:</h1>
 
-    <a href="/products/add">Add New Product</a>
-    <ul>
-      <% products.forEach(function(product) { %>
-      <li>
-        ID:
-        <a href="/products/<%= product.id %>"> <%=product.id%> </a>
-        Nombre:
-        <a href="/products/<%= product.id %>"> <%=product.nombre%> </a>
+      <form action="/product/add" method="get">
+        <button type="submit">Agregar nuevo producto a la Mercadería</button>
+      </form>
 
-        <form
-          action="/products/<%= product.id %>?_method=DELETE"
-          method="post"
-          style="display: inline"
-        >
-          <input type="hidden" name="_method" value="delete" />
+      <form action="/product/filterProducto" method="get">
+        <label for="productNombre">Nombre o ID del Producto a buscar:</label>
+        <input type="text" id="productNombre" name="productNombre" required />
+        <button type="submit">Buscar</button>
+      </form>
 
-          <button type="submit">Borrar</button>
-        </form>
-        <a href="/products/edit/<%= product.id %>">
-          <button type="submit">Editar</button>
-        </a>
-      </li>
-      <% }); %>
-    </ul>
+      <ul>
+        <% products.forEach(function(product) { %>
+        <li>
+          <div>
+            <strong>ID:</strong>
+            <a href="/products/<%= product.id %>"><%=product.id%></a>
+            <br />
+            <strong>Nombre:</strong>
+            <a href="/products/<%= product.id %>"><%=product.nombre%></a>
+          </div>
+          <div class="actions">
+            <form
+              action="/products/<%= product.id %>?_method=DELETE"
+              method="post"
+            >
+              <input type="hidden" name="_method" value="delete" />
+              <button type="submit" class="delete">Borrar</button>
+            </form>
+            <a href="/products/edit/<%= product.id %>">
+              <button type="button">Editar</button>
+            </a>
+          </div>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
   </body>
 </html>
