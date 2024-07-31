@@ -13,7 +13,7 @@ Asegúrate de tener instalado:
 ## Instalación
 
 1. Clonar el repositorio:
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/SantiagoRemis/Trabajo-Integrador-BACKEND.git
 
 2. Instalar dependencias:
    npm install
